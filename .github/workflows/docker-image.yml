@@ -16,7 +16,7 @@ jobs:
       matrix:
         platform:
           - linux/amd64
-          - linux/arm64
+#          - linux/arm64
     steps:
       - name: Prepare
         run: |
@@ -45,6 +45,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       
       - name: Build and push by digest php7.4
+        id: build
         uses: docker/build-push-action@v5
         with:
           context: ./php7.4
@@ -57,7 +58,7 @@ jobs:
           mkdir -p /tmp/digests
           digest="${{ steps.build.outputs.digest }}"
           touch "/tmp/digests/${digest#sha256:}"       
-             
+
       - name: Upload digest
         uses: actions/upload-artifact@v4
         with:
