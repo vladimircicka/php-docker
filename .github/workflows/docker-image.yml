@@ -28,5 +28,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./php7.4
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: vlado92/php7.4:latest

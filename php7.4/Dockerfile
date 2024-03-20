@@ -34,30 +34,31 @@ RUN docker-php-ext-configure gd \
     --enable-gd \
 	&& docker-php-ext-install -j$(nproc) gd 
     
-RUN docker-php-ext-install bcmath
-RUN docker-php-ext-install bz2
-RUN docker-php-ext-install calendar
-RUN docker-php-ext-install ctype
-RUN docker-php-ext-install curl
-RUN docker-php-ext-install dba
-RUN docker-php-ext-install dom
-RUN docker-php-ext-install exif
-RUN docker-php-ext-install fileinfo
-RUN docker-php-ext-install ftp
-RUN docker-php-ext-install iconv
-RUN docker-php-ext-install intl
-RUN docker-php-ext-install mbstring
-RUN docker-php-ext-install mysqli
-RUN docker-php-ext-install opcache
-RUN docker-php-ext-install pcntl
-RUN docker-php-ext-install pdo
-RUN docker-php-ext-install pdo_mysql
-RUN docker-php-ext-install phar
-RUN docker-php-ext-install posix
-RUN docker-php-ext-install simplexml
-RUN docker-php-ext-install soap
-RUN docker-php-ext-install xsl
-RUN docker-php-ext-install zip
+RUN docker-php-ext-install \
+    bcmath \
+    bz2 \
+    calendar \
+    ctype \
+    curl \
+    dba \
+    dom \
+    exif \
+    fileinfo \
+    ftp \
+    iconv \
+    intl \
+    mbstring \
+    mysqli \
+    opcache \
+    pcntl \
+    pdo \
+    pdo_mysql \
+    phar \
+    posix \
+    simplexml \
+    soap \
+    xsl \
+    zip
 
 RUN docker-php-ext-enable xsl mysqli curl dom fileinfo gd iconv intl exif pdo_mysql mbstring simplexml zip
 
